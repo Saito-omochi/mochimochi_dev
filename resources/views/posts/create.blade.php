@@ -21,11 +21,25 @@
             </div>
             <div>
                 <h2>カテゴリー</h2>
-                <select name="post[category_id]">
+                <select name="category[category_id]">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div>
+                <h2>住所</h2>
+                <p>都道府県
+                <select name="prefecture[prefecture]">
+                    @foreach($prefectures as $prefecture)
+                            <option value={{$prefecture->id}}>{{$prefecture->name}}</option>
+                    @endforeach
+                </select>
+                </p>
+                <p>市～
+                    <input type="text" name="post[address]" />
+                    <p class="title__error" style="color:red">{{ $errors->first('post.address') }}</p>
+                </p>
             </div>
             <input type="submit" value="保存"/>
         </form>
