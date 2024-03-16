@@ -27,6 +27,20 @@
                     @endforeach
                 </select>
             </div>
+            <div>
+                <h2>住所</h2>
+                <p>都道府県
+                    @foreach($prefectures as $prefecture)
+                        <select>
+                            <option value={{$prefecture->id}}>{{$prefecture->name}}</option>
+                        </select>
+                    @endforeach
+                </p>
+                <p>市～
+                    <input type="text" name="post[address]" />
+                    <p class="title__error" style="color:red">{{ $errors->first('post.address') }}</p>
+                </p>
+            </div>
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>
