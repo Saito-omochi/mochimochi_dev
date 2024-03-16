@@ -12,8 +12,20 @@
         <div>
             <p>タイトル：{{ $post->title }}</p>
             <p>本文：{{ $post->body }}</p>
-            @foreach($post->categories as $category)   
-                {{ $category->cattegory_name }}
+            <p>都道府県：
+                <a href="/prefectures/{{ $post->prefecture->id }}">{{ $post->prefecture->name }}</a>
+            </p>
+            <p>住所：{{ $post->address }}</p>
+            <p>桜の種類：
+                @foreach($post->categories as $category)   
+                    <a href="/categories/{{ $category->id }}">{{ $category->name }}</a>
+                @endforeach
+            </p>
+        </div>
+        <div>
+            <p>コメント：</p>
+            @foreach($post->comments as $comment)   
+                <p>{{ $comment->comment }}</p>
             @endforeach
         </div>
         <div>

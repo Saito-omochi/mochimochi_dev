@@ -16,9 +16,24 @@ class Category_PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category_posts')->insert([
+        DB::table('category_post')->insert([
             'post_id' => 1,
-            'category_id' => 1,
+            'category_id' => 1
+        ]);
+        
+        DB::table('category_post')->insert([
+            'post_id' => 1,
+            'category_id' => 4
+        ]);
+        
+        DB::table('category_post')->insert([
+            'post_id' => 1,
+            'category_id' => 17
+        ]);
+        
+        DB::table('category_post')->insert([
+            'post_id' => 2,
+            'category_id' => 1
         ]);
     }
 }
