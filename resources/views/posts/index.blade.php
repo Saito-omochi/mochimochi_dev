@@ -10,13 +10,19 @@
         <h1>チーム開発会へようこそ！</h1>
         <h2>投稿一覧画面</h2>
         <a href='/posts/create'>新規投稿</a>
+        <a href='/search'>検索画面へ</a>
         <div>
             @foreach ($posts as $post)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
-                    <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+                    <p>咲いてる桜：(カテゴリーページに移動できるように＋複数表示したい)
+                    @foreach($post->category -> $categories)
+                        <a href="/categories/{{ $categories->category->id }}">{{ $categories->category->name }}</a></p>
+                    @endforeach
+                    </p>
+                    <p>都道府県：{{$post -> prefecture_id -> name}}</p>
                 </div>
             @endforeach
         </div>
