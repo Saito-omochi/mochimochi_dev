@@ -20,16 +20,19 @@ class Post extends Model
     public function getPaginateByLimit(int $limit_count = 5)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('prefecture')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 
-    /*public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
-    }*/
-    
-    public function categories(){
-        //生徒は多数の科目を履修。
         return $this->belongsToMany(Category::class);
+    }
+    
+    public function prefecture(){
+        return $this->belongsTo(Prefecture::class);
+    }
+    
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 }

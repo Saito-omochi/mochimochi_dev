@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>チーム開発会へようこそ！</h1>
+        <h1>桜の名所</h1>
         <h2>カテゴリー:{{ $category_name }} の投稿一覧画面</h2>
         <a href='/'>投稿一覧ページへ戻る</a>
         <div>
@@ -16,12 +16,23 @@
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
+<<<<<<< HEAD
+                    <p>都道府県：
+                        <a href="/prefectures/{{ $post->prefecture->id }}">{{ $post->prefecture->name }}</a>
+                    </p>
+                    <p>カテゴリー：
+                        @foreach($post->categories as $category)
+                            <a href="/categories/{{ $category->id }}">{{ $category->name }}</a>
+                        @endforeach
+                    </p>
+=======
                     <p>咲いてる桜：(カテゴリーページに移動できるように＋複数表示したい)
                     @foreach($post->category -> $categories)
                         <a href="/categories/{{ $categories->category->id }}">{{ $categories->category->name }}</a></p>
                     @endforeach
                     </p>
                     <p>都道府県：{{$post -> prefecture_id}}</p>
+>>>>>>> e8ad05d4fd4799ff3333a6e6bfe7155c014893f2
                 </div>
             @endforeach
         </div>
