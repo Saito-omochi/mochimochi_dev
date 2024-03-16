@@ -21,7 +21,7 @@
             </div>
             <div>
                 <h2>カテゴリー</h2>
-                <select name="post[category_id]">
+                <select name="category[category_id]">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
@@ -30,11 +30,11 @@
             <div>
                 <h2>住所</h2>
                 <p>都道府県
+                <select name="prefecture[prefecture]">
                     @foreach($prefectures as $prefecture)
-                        <select>
                             <option value={{$prefecture->id}}>{{$prefecture->name}}</option>
-                        </select>
                     @endforeach
+                </select>
                 </p>
                 <p>市～
                     <input type="text" name="post[address]" />
