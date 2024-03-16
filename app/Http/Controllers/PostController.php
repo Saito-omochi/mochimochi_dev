@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Prefecture;
 
 class PostController extends Controller
 {
@@ -18,24 +19,29 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
 
-    public function create(Category $category)
+    public function create(Category $category, Prefecture $prefecture) //koko!
     {
-        return view('posts/create')->with(['categories' => $category->get()]);
+        return view('posts/create')->with(['categories' => $category->get(), 'prefectures' => $prefecture -> get()]);
     }
 
-    public function store(Post $post, Request $request)
+    public function store(Post $post, Request $request)//koko!
     {
-        $input = $request['post'];
-        $post->fill($input)->save();
+        $input_post = $request['post'];
+        $input_category = $request -> categories_array;
+        $input_prefecture = $request -> prefectures_array;
+        
+        $post->fill($input_post)->save();
+        $post->categories()->attach($input_category);
+        $post->categories()->attach($input_prefecture);
         return redirect('/posts/' . $post->id);
     }
 
-    public function edit(Post $post)
+    public function edit(Post $post)//koko!
     {
         return view('posts/edit')->with(['post' => $post]);
     }
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post)//koko!
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();

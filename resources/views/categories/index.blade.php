@@ -16,7 +16,12 @@
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
-                    <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+                    <p>咲いてる桜：(カテゴリーページに移動できるように＋複数表示したい)
+                    @foreach($post->category -> $categories)
+                        <a href="/categories/{{ $categories->category->id }}">{{ $categories->category->name }}</a></p>
+                    @endforeach
+                    </p>
+                    <p>都道府県：{{$post -> prefecture_id}}</p>
                 </div>
             @endforeach
         </div>
