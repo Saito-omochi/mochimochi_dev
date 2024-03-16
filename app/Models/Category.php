@@ -18,4 +18,9 @@ class Category extends Model
     {
         return $this->posts()->with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
+    public function posts(){
+    //1つの科目を多数の生徒が履修。
+        return $this->belongsToMany(Post::class);
+    }
 }
