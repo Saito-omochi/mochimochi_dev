@@ -16,7 +16,7 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
+        /*DB::table('posts')->insert([
             'title' => 'チーム開発会って？',
             'body' => 'チームで協力して一つの成果物を作るイベントです！メンバー全員で助け合いましょう！',
             'category_id' => 1,
@@ -38,6 +38,6 @@ class PostSeeder extends Seeder
             'category_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-        ]);
+        ]);*/
     }
 }
