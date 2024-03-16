@@ -21,8 +21,13 @@ class Post extends Model
         return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 
-    public function category()
+    /*public function category()
     {
         return $this->belongsTo(Category::class);
+    }*/
+    
+    public function categories(){
+        //生徒は多数の科目を履修。
+        return $this->belongsToMany(Category::class);
     }
 }

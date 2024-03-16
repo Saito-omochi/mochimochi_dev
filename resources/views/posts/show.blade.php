@@ -12,7 +12,9 @@
         <div>
             <p>タイトル：{{ $post->title }}</p>
             <p>本文：{{ $post->body }}</p>
-            <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+            @foreach($post->categories as $category)   
+                {{ $category->cattegory_name }}
+            @endforeach
         </div>
         <div>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>

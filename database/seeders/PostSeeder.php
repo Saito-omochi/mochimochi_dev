@@ -39,5 +39,15 @@ class PostSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);*/
+        
+        DB::table('posts')->insert([
+            'title' => 'サンプルタイトル',
+            'body' => 'サンプルボディ',
+            'user_id' => 1,
+            'prefecture_id' => 1,
+            'address' => '東京都新宿区',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }
