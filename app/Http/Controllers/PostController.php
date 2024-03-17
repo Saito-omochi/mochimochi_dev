@@ -31,8 +31,8 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $input_category = $request -> categories_array;
     
-        $path = $request -> file('image') -> store('public');//画像保存。なくても大丈夫なように条件分岐をした
-        $path2 = $request -> file('image2') -> store('public');
+        $path = $request -> file('image');//画像保存。なくても大丈夫なように条件分岐をした
+        $path2 = $request -> file('image2');
         if($path != null){
             $path -> store('public');
             $post -> image = basename($path);
