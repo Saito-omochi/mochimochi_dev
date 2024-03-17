@@ -31,14 +31,15 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $input_category = $request -> categories_array;
     
-        $path = $request -> file('image');//画像保存。なくても大丈夫なように条件分岐をした
-        $path2 = $request -> file('image2');
-        if($path != null){
-            $path -> store('public');
+
+        $img1 = $request -> file('image');//画像保存。なくても大丈夫なように条件分岐をした
+        $img2 = $request -> file('image2');
+        if($img1 != null){
+            $path = $img1 -> store('public');
             $post -> image = basename($path);
         }
-        if($path2 != null){
-            $path2 -> store('public');
+        if($img2 != null){
+            $path2 = $img2 -> store('public');
             $post -> image2 = basename($path2);
         }
         
