@@ -31,6 +31,7 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $input_category = $request -> categories_array;
     
+
         $img1 = $request -> file('image');//画像保存。なくても大丈夫なように条件分岐をした
         $img2 = $request -> file('image2');
         if($img1 != null){
