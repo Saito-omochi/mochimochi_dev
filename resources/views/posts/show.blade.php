@@ -11,6 +11,10 @@
         <h1>詳細画面</h1>
         <div>
             <p>タイトル：{{ $post->title }}</p>
+            <p>画像
+                <img src="{{asset('storage/' . $post->image)}}" width="500px" height="auto" />
+                <img src="{{asset('storage/' . $post->image2)}}" width="500px" height="auto" />
+            </p>
             <p>本文：{{ $post->body }}</p>
             <p>都道府県：
                 <a href="/prefectures/{{ $post->prefecture->id }}">{{ $post->prefecture->name }}</a>
