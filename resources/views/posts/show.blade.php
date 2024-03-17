@@ -6,12 +6,13 @@
         <title>Posts</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/show.css') }}">
     </head>
     <body>
-        <h1>詳細画面</h1>
-        <div>
-            <p>タイトル：{{ $post->title }}</p>
-            <p>画像
+        <div class="title">
+            <h1>{{ $post->title }}</h1>
+        </div>
+            <p>
                 <img src="{{asset('storage/' . $post->image)}}" width="500px" height="auto" />
                 <img src="{{asset('storage/' . $post->image2)}}" width="500px" height="auto" />
             </p>
@@ -53,6 +54,8 @@
             @method('DELETE')
             <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
         </form>
+        
+        <span class="text-red-100">text-red-100</span><br>
     </body>
     <script>
     function deletePost(id) {
