@@ -31,6 +31,11 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $input_category = $request -> categories_array;
         
+        $path = $request -> file('image') -> store('img');//画像保存
+        $path2 = $request -> file('image2') -> store('img');
+        $post -> image = basename($path);
+        $post -> image2 = basename($path2);
+        
         $post->fill($input_post)->save();
         $post->categories()->attach($input_category);
         return redirect('/posts/' . $post->id);
