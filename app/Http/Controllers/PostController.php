@@ -41,9 +41,9 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
 
-    public function edit(Post $post)//koko!
+    public function edit(Post $post, Category $category, Prefecture $prefecture)//koko!
     {
-        return view('posts/edit')->with(['post' => $post]);
+        return view('posts/edit')->with(['post' => $post, 'categories' => $category->get(), 'prefectures' => $prefecture -> get()]);
     }
 
     public function update(Request $request, Post $post)//koko!
@@ -52,6 +52,12 @@ class PostController extends Controller
         $post->fill($input_post)->save();
 
         return redirect('/posts/' . $post->id);
+    }
+    
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
     }
 
 }

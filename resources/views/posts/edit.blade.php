@@ -19,21 +19,21 @@
                     <input type='text' name='post[body]' value="{{ $post->body }}">
                 </div>
                 <div>
-                <h2>カテゴリー</h2>
-                <select name="post[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+                <h2>桜の種類：</h2>
+                @foreach($categories as $category)
+                    <input type="checkbox"　value="{{ $category->id }}" name="categories_array[]">
+                        {{$category->name}}
+                    </input>
+                @endforeach
             </div>
                 <div>
                 <h2>住所</h2>
                 <p>都道府県
+                    <select name="post[prefecture_id]" value="{{ $post->prefecture_id }}">
                     @foreach($prefectures as $prefecture)
-                        <select>
                             <option value={{$prefecture->id}}>{{$prefecture->name}}</option>
-                        </select>
                     @endforeach
+                　　</select>
                 </p>
                 <p>市～
                     <input type="text" name="post[address]" value="{{$post->address}}"/>
