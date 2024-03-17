@@ -47,6 +47,11 @@ class PostController extends Controller
         $post->categories()->attach($input_category);
         return redirect('/posts/' . $post->id);
     }
+    
+    public function search(Category $category, Prefecture $prefecture)
+    {
+        return view('posts.search')->with(['categories' => $category->get(), 'prefectures' => $prefecture ->get()]);
+    }
 
     public function edit(Post $post, Category $category, Prefecture $prefecture)//koko!
     {
