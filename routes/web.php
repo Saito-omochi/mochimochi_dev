@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PrefectureController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{post}/edit',  [PostController::class, 'edit']);
     Route::get('/categories/{category}', [CategoryController::class,'index']);
     Route::get('/prefectures/{prefecture}', [PrefectureController::class,'index']);
+    Route::post('/make_comment', [CommentController::class, 'make']);
 });
 
 require __DIR__.'/auth.php';
