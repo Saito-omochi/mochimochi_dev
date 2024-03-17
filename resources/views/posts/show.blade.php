@@ -32,5 +32,16 @@
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
             <a href="/">戻る</a>
         </div>
+        
+        <form action="/make_comment" method="POST">
+            @csrf
+            <div>
+                <h2>コメント</h2>
+                <input type='hidden' name='comment[post_id]' value="{{ $post->id }}">
+                <input type="text" name="comment[comment]" placeholder="タイトル" value="{{ old('comment.comment') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+            </div>
+            <input type="submit" value="送信"/>
+        </form>
     </body>
 </html>
