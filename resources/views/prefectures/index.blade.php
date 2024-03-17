@@ -21,6 +21,10 @@
                             <a href="/categories/{{ $category->id }}">{{ $category->name }}</a>
                         @endforeach
                     </p>
+                    <p>画像
+                        <img src="{{asset('storage/' . $post->image)}}" width="500px" height="auto" />
+                        <img src="{{asset('storage/' . $post->image2)}}" width="500px" height="auto" />
+                    </p>
                 </div>
             @endforeach
         </div>
