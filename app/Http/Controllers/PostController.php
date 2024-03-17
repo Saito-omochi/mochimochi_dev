@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Prefecture;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -27,12 +28,11 @@ class PostController extends Controller
     public function store(Post $post, Request $request)//koko!
     {
         $input_post = $request['post'];
+        $post->user_id = Auth::id();
         $input_category = $request -> categories_array;
-        $input_prefecture = $request -> prefectures_array;
         
         $post->fill($input_post)->save();
         $post->categories()->attach($input_category);
-        $post->categories()->attach($input_prefecture);
         return redirect('/posts/' . $post->id);
     }
 

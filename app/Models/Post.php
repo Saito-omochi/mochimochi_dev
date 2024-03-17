@@ -13,7 +13,6 @@ class Post extends Model
         'title',
         'body',
         'address',
-        'prefecture',
         'prefecture_id'
     ];
 

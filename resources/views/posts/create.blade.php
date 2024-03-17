@@ -30,7 +30,7 @@
             <div>
                 <h2>住所</h2>
                 <p>都道府県
-                <select name="prefecture[prefecture]">
+                <select name="post[prefecture_id]">
                     @foreach($prefectures as $prefecture)
                             <option value={{$prefecture->id}}>{{$prefecture->name}}</option>
                     @endforeach
