@@ -8,22 +8,18 @@
             <form>
             <h1 class="title">検索画面</h1>
             <div>
-                <p>全文検索</p>
-                <input type="text" name="search[keyword]" />
-            </div>
-            <div>
-                カテゴリー指定
+                カテゴリーページへ
                 <option>
                     @foreach($categories as $category)
-                        <select value={{$category->id}}>{{$category->name}}</select>
+                        <p><a href="posts/{{$category->id}}">{{$category->name}}</a></p>
                     @endforeach
                 </option>
             </div>
             <div>
-                都道府県指定
+                都道府県指定ページへ
                 <option>
                     @foreach($prefectures as $prefecture)
-                        <select value={{$prefecture->id}}>{{$prefectures -> name}}</select>
+                        <p><a href="posts/{{$prefecture->id}}">{{$prefecture->name}}</a></p>
                     @endforeach
                 </option>
             </div>

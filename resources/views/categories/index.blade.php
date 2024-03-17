@@ -5,15 +5,16 @@
         <title>Blog</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('css/index.css')}}">
     </head>
-    <body>
-        <h1>桜の名所</h1>
+    <body class="body">
+        <h1 class="pagetitle">桜の名所</h1>
         <h2>カテゴリー:{{ $category_name }} の投稿一覧画面</h2>
         <a href='/'>投稿一覧ページへ戻る</a>
         <div>
             @foreach ($posts as $post)
-                <div style='border:solid 1px; margin-bottom: 10px;'>
-                    <p>
+                <div class="block">
+                    <p class="title">
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
                     <p>都道府県：
