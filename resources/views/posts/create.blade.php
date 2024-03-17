@@ -21,11 +21,11 @@
             </div>
             <div>
                 <h2>カテゴリー</h2>
-                <select name="category[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+                @foreach($categories as $category)
+                    <input type="checkbox" value="{{ $category->id }}" name="categories_array[]">
+                        {{$category->name}}
+                    </input>
+                @endforeach
             </div>
             <div>
                 <h2>住所</h2>
